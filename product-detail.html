@@ -12,1079 +12,286 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-              * {
-                  margin: 0;
-                  padding: 0;
-                  box-sizing: border-box;
-              }
-
-              body {
-                  font-family: 'Nunito', sans-serif;
-                  background: #ffffff;
-                  min-height: 100vh;
-                  color: #333;
-              }
-
-              /* Navigation */
-              .navbar {
-                  background: rgba(255, 255, 255, 0.95);
-                  backdrop-filter: blur(10px);
-                  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-                  padding: 0;
-                  position: sticky;
-                  top: 0;
-                  z-index: 1000;
-                  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-              }
-
-              .nav-container {
-                  max-width: 1200px;
-                  margin: 0 auto;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  padding: 0 20px;
-                  height: 70px;
-              }
-
-              .logo {
-                  display: flex;
-                  align-items: center;
-                  font-size: 1.8rem;
-                  font-weight: 800;
-                  color: #00b4a6;
-                  text-decoration: none;
-              }
-
-              .logo i {
-                  margin-right: 8px;
-                  font-size: 2rem;
-              }
-
-              .nav-menu {
-                  display: flex;
-                  list-style: none;
-                  gap: 40px;
-              }
-
-              .nav-link {
-                  text-decoration: none;
-                  color: #374151;
-                  font-weight: 600;
-                  font-size: 1rem;
-                  padding: 25px 0;
-                  transition: color 0.3s ease;
-              }
-
-              .nav-link:hover, .nav-link.active {
-                  color: #00b4a6;
-              }
-
-              .nav-actions {
-                  display: flex;
-                  align-items: center;
-                  gap: 20px;
-              }
-
-              .action-btn {
-                  background: none;
-                  border: none;
-                  color: #374151;
-                  font-size: 1.3rem;
-                  cursor: pointer;
-                  padding: 8px;
-                  transition: all 0.3s ease;
-                  position: relative;
-              }
-
-              .action-btn:hover {
-                  color: #00b4a6;
-              }
-
-              .cart-count {
-                  position: absolute;
-                  top: -5px;
-                  right: -5px;
-                  background: #ff6b6b;
-                  color: white;
-                  border-radius: 50%;
-                  width: 18px;
-                  height: 18px;
-                  font-size: 0.7rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-weight: 700;
-              }
-
-              .login-btn {
-                  background: linear-gradient(135deg, #00b4a6, #4fd1c7);
-                  color: white;
-                  border: none;
-                  padding: 12px 24px;
-      `            border-radius: 25px;
-                  font-weight: 700;
-                  font-size: 0.9rem;
-                  text-transform: uppercase;
-                  letter-spacing: 0.5px;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-                  text-decoration: none;
-                  display: inline-block;
-              }
-
-              .login-btn:hover {
-                  transform: translateY(-2px);
-                  box-shadow: 0 8px 25px rgba(0, 180, 166, 0.3);
-              }
-
-              /* Back Button */
-              .back-btn {
-                  position: fixed;
-                  top: 100px;
-                  left: 30px;
-                  background: #fff;
-                  border: 2px solid #00b4a6;
-                  padding: 12px 15px;
-                  color: #00b4a6;
-                  font-size: 1.2rem;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                  z-index: 100;
-              }
-
-              .back-btn:hover {
-                  background: #00b4a6;
-                  color: white;
-              }
-
-              /* Main Container */
-              .container {
-                  max-width: 1400px;
-                  margin: 0 auto;
-                  padding: 40px 20px 10px 20px;
-              }
-
-              /* Hotline Header */
-              .hotline-header {
-                  background: #00b4a6;
-                  color: white;
-                  text-align: center;
-                  padding: 15px 0;
-                  font-weight: 700;
-                  font-size: 1.1rem;
-                  letter-spacing: 1px;
-                  margin-bottom: 40px;
-              }
-
-              /* Product Detail Layout */
-            .product-detail {
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              padding: 20px; /* inner spacing for the card */
-              overflow: visible;
-            }
-
-              /* Product Image Section */
-            .product-image-section {
-              padding: 20px;
-              background: transparent; /* keep the card background visible */
-            }
-
-              .main-image {
-                  width: 100%;
-                  height: 620px;
-                  object-fit: cover;
-                  display: block;
-              }
-
-              /* Product Info Section */
-            .product-info {
-              padding: 20px;
-              background: transparent;
-            }
-
-              .product-title {
-                  font-size: 2.5rem;
-                  font-weight: 800;
-                  color: #2d3748;
-                  margin-bottom: 20px;
-                  line-height: 1.2;
-              }
-
-              .product-price {
-                  font-size: 2rem;
-                  font-weight: 900;
-                  color: #e53e3e;
-                  margin-bottom: 8px;
-              }
-
-              .vat-note {
-                  color: #718096;
-                  font-size: 1rem;
-                  margin-bottom: 30px;
-                  font-style: italic;
-              }
-
-              /* Promotions Section */
-              .promotions-section {
-                  margin-bottom: 25px;
-              }
-
-              .promo-label {
-                  font-size: 1rem;
-                  font-weight: 700;
-                  color: #2d3748;
-                  margin-bottom: 10px;
-              }
-
-              .promo-tags {
-                  display: flex;
-                  gap: 10px;
-                  flex-wrap: wrap;
-              }
-
-              .promo-tag {
-                  background: white;
-                  border: 2px dashed #e53e3e;
-                  color: #e53e3e;
-                  padding: 8px 15px;
-                  font-size: 0.9rem;
-                  font-weight: 700;
-                  border-radius: 0;
-              }
-
-              /* Services Section */
-              .services-section {
-                  display: flex;
-                  gap: 20px;
-                  margin-bottom: 30px;
-                  flex-wrap: wrap;
-              }
-
-              .service-item {
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                  background: #f7fafc;
-                  padding: 15px;
-                  border: 1px solid #e2e8f0;
-                  flex: 1;
-                  min-width: 120px;
-              }
-
-              .service-icon {
-                  width: 40px;
-                  height: 40px;
-                  background: #00b4a6;
-                  color: white;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.2rem;
-              }
-
-              .service-text {
-                  flex: 1;
-              }
-
-              .service-title {
-                  font-size: 0.9rem;
-                  font-weight: 600;
-                  color: #2d3748;
-                  line-height: 1.2;
-              }
-
-              .service-subtitle {
-                  font-size: 0.8rem;
-                  font-weight: 800;
-                  color: #00b4a6;
-                  line-height: 1.2;
-              }
-
-              /* Product Description */
-              .product-description {
-                  margin-bottom: 30px;
-                  background: #f7fafc;
-              }
-
-              .product-description h4 {
-                  font-size: 1.3rem;
-                  font-weight: 800;
-                  color: #2d3748;
-                  margin-bottom: 15px;
-              }
-
-              .product-description p {
-                  color: #4a5568;
-                  line-height: 1.7;
-                  font-size: 1rem;
-                  margin-bottom: 15px;
-              }
-
-              .product-description ul {
-                  color: #4a5568;
-                  padding-left: 20px;
-              }
-
-              .product-description li {
-                  margin-bottom: 8px;
-                  line-height: 1.6;
-              }
-
-              .quantity-section {
-                  margin-bottom: 25px;
-              }
-
-              .quantity-label {
-                  font-size: 1.2rem;
-                  font-weight: 700;
-                  color: #2d3748;
-                  margin-bottom: 15px;
-              }
-
-              .quantity-controls {
-                  display: flex;
-                  align-items: center;
-                  gap: 15px;
-              }
-
-              .qty-btn {
-                  width: 40px;
-                  height: 40px;
-                  border: 2px solid #00b4a6;
-                  background: white;
-                  color: #00b4a6;
-                  font-size: 1.3rem;
-                  font-weight: 300;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-              }
-
-              .qty-btn:hover:not(:disabled) {
-                  background: #00b4a6;
-                  color: white;
-              }
-
-              .qty-btn:disabled {
-                  opacity: 0.5;
-                  cursor: not-allowed;
-              }
-
-              .quantity-display {
-                  font-size: 1.5rem;
-                  font-weight: 800;
-                  color: #2d3748;
-                  min-width: 50px;
-                  text-align: center;
-              }
-
-              .main-order-btn {
-                  width: 100%;
-                  background: #e55f00;
-                  color: white;
-                  border: none;
-                  padding: 18px;
-                  font-size: 1.2rem;
-                  font-weight: 300;
-                  text-transform: uppercase;
-                  letter-spacing: 1px;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-                  margin-bottom: 20px;
-              }
-
-              .main-order-btn:hover {
-                  background: #cc5500;
-                  transform: translateY(-2px);
-              }
-
-              /* Contact Buttons */
-              .contact-buttons {
-                  display: flex;
-                  gap: 10px;
-                  margin-top: 15px;
-              }
-
-              .contact-btn {
-                  flex: 1;
-                  padding: 16px 12px;
-                  border: 2px solid;
-                  background: white;
-                  font-size: 1.1rem;
-                  font-weight: 600;
-                  cursor: pointer;
-                  transition: all 0.3s ease;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 10px;
-                  border-radius: 8px;
-              }
-
-              .contact-phone {
-                  border-color: #ff9500;
-                  color: #ff9500;
-              }
-
-              .contact-phone:hover {
-                  background: #ff9500;
-                  color: white;
-              }
-
-              .contact-zalo {
-                  border-color: #0068ff;
-                  color: #0068ff;
-              }
-
-              .contact-zalo:hover {
-                  background: #0068ff;
-                  color: white;
-              }
-
-              .contact-facebook {
-                  border-color: #1877f2;
-                  color: #1877f2;
-              }
-
-              .contact-facebook:hover {
-                  background: #1877f2;
-                  color: white;
-              }
-
-              /* Detailed Description Section */
-              .detailed-description {
-                  padding: 0;
-              }
-
-              .detailed-description h2 {
-                  font-size: 2.2rem;
-                  font-weight: 800;
-                  color: #2d3748;
-                  margin-bottom: 40px;
-                  text-align: center;
-                  position: relative;
-              }
-
-              .detailed-description h2:before {
-                  content: '\f05a';
-                  font-family: 'Font Awesome 6 Free';
-                  font-weight: 900;
-                  margin-right: 15px;
-                  color: #00b4a6;
-              }
-
-              .detailed-description h2:after {
-                  content: '';
-                  display: block;
-                  width: 100px;
-                  height: 3px;
-                  background: #00b4a6;
-                  margin: 15px auto 0;
-              }
-
-              .detailed-description h3 {
-                  font-size: 1.4rem;
-                  font-weight: 700;
-                  color: #2d3748;
-                  margin: 35px 0 20px 0;
-                  display: flex;
-                  align-items: center;
-                  gap: 12px;
-              }
-
-              .detailed-description h3:before {
-                  font-family: 'Font Awesome 6 Free';
-                  font-weight: 900;
-                  color: #00b4a6;
-                  font-size: 1.2rem;
-              }
-
-              .detailed-description h3:nth-of-type(1):before {
-                  content: '\f06e';
-              }
-
-              .detailed-description h3:nth-of-type(2):before {
-                  content: '\f004';
-              }
-
-              .detailed-description h3:nth-of-type(3):before {
-                  content: '\f0ad';
-              }
-
-              .detailed-description p {
-                  color: #4a5568;
-                  line-height: 1.8;
-                  font-size: 1.05rem;
-                  margin-bottom: 20px;
-                  text-align: justify;
-              }
-
-              .detailed-description ul {
-                  color: #4a5568;
-                  padding-left: 0;
-                  margin-bottom: 30px;
-                  list-style: none;
-              }
-
-              .detailed-description li {
-                  margin-bottom: 15px;
-                  line-height: 1.7;
-                  font-size: 1rem;
-                  position: relative;
-                  padding-left: 35px;
-              }
-
-              .detailed-description li:before {
-                  content: '\f00c';
-                  font-family: 'Font Awesome 6 Free';
-                  font-weight: 900;
-                  color: #00b4a6;
-                  position: absolute;
-                  left: 0;
-                  top: 2px;
-                  font-size: 0.9rem;
-              }
-
-              .detailed-description .note {
-                  background: #f0f9ff;
-                  border-left: 4px solid #00b4a6;
-                  padding: 20px 25px;
-                  margin-top: 35px;
-                  font-style: italic;
-                  position: relative;
-              }
-
-              .detailed-description .note:before {
-                  content: '\f06a';
-                  font-family: 'Font Awesome 6 Free';
-                  font-weight: 900;
-                  color: #00b4a6;
-                  font-size: 1.1rem;
-                  margin-right: 10px;
-                  font-style: normal;
-              }
-
-              /* Footer */
-              .footer {
-                  background: #2d3748;
-                  color: white;
-                  margin-top: 40px;
-                  padding: 30px 0 20px;
-              }
-
-              .footer-container {
-                  max-width: 1400px;
-                  margin: 0 auto;
-                  padding: 0 20px;
-              }
-
-              .footer-content {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                  gap: 30px;
-                  margin-bottom: 25px;
-              }
-
-              .footer-section h3 {
-                  color: #00b4a6;
-                  font-size: 1.2rem;
-                  font-weight: 800;
-                  margin-bottom: 15px;
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-              }
-
-              .footer-section h3:before {
-                  font-family: 'Font Awesome 6 Free';
-                  font-weight: 900;
-                  font-size: 1.1rem;
-              }
-
-              .footer-section:nth-child(1) h3:before {
-                  content: '\f015'; /* home icon */
-              }
-
-              .footer-section:nth-child(2) h3:before {
-                  content: '\f0e0'; /* envelope icon */
-              }
-
-              .footer-section:nth-child(3) h3:before {
-                  content: '\f0c0'; /* users icon */
-              }
-
-              .footer-section:nth-child(4) h3:before {
-                  content: '\f05a'; /* info icon */
-              }
-
-              .footer-section p, .footer-section li {
-                  color: white;
-                  line-height: 1.6;
-                  margin-bottom: 8px;
-              }
-
-              .footer-section ul {
-                  list-style: none;
-                  padding: 0;
-              }
-
-              .footer-section a {
-                  color: white;
-                  text-decoration: none;
-                  transition: color 0.3s ease;
-              }
-
-              .footer-section a:hover {
-                  color: #00b4a6;
-              }
-
-              .contact-info {
-                  display: flex;
-                  align-items: center;
-                  gap: 12px;
-                  margin-bottom: 15px;
-              }
-
-              .contact-info i {
-                  color: #00b4a6;
-                  width: 20px;
-                  font-size: 1.1rem;
-              }
-
-              .social-links {
-                  display: flex;
-                  gap: 15px;
-                  margin-top: 20px;
-              }
-
-              .social-link {
-                  width: 40px;
-                  height: 40px;
-                  background: #4a5568;
-                  color: white;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 50%;
-                  transition: all 0.3s ease;
-                  text-decoration: none;
-              }
-
-              .social-link:hover {
-                  background: #00b4a6;
-                  transform: translateY(-2px);
-              }
-
-              .footer-bottom {
-                  border-top: 1px solid #4a5568;
-                  padding-top: 20px;
-                  text-align: center;
-              }
-
-              .footer-bottom p {
-                  color: white;
-                  margin-bottom: 5px;
-              }
-
-              .footer-logo {
-                  display: inline-flex;
-                  align-items: center;
-                  font-size: 1.5rem;
-                  font-weight: 800;
-                  color: #00b4a6;
-                  margin-bottom: 15px;
-              }
-
-              .footer-logo i {
-                  margin-right: 8px;
-                  font-size: 1.8rem;
-              }
-
-              /* Responsive */
-              @media (max-width: 768px) {
-                  .product-detail {
-                      grid-template-columns: 1fr;
-                      gap: 0;
-                  }
-
-                  .product-image-section, .product-info {
-                      padding: 30px 20px;
-                  }
-
-                  .main-image {
-                      height: 350px;
-                  }
-
-                  .product-title {
-                      font-size: 2rem;
-                  }
-
-                  .back-btn {
-                      left: 15px;
-                      top: 85px;
-                  }
-              }
-    </style>
+    <link rel="stylesheet" href="product-detail.css" />
   </head>
   <body>
-    <!-- Back Button -->
-    <button class="back-btn" onclick="window.history.back()">
-      <i class="fas fa-arrow-left"></i>
-    </button>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay">
+      <!-- Modal Container -->
+      <div class="modal-container">
+        <!-- Close Button -->
+        <button class="close-btn" onclick="window.history.back()">
+          <i class="fas fa-times"></i>
+        </button>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="navigation.html" class="logo">
-          <i class="fas fa-seedling"></i>
-          Shop Hoa Tươi
-        </a>
-
-        <ul class="nav-menu">
-          <li><a href="navigation.html" class="nav-link">Trang Chủ</a></li>
-          <li><a href="#" class="nav-link">Giới Thiệu</a></li>
-          <li><a href="#" class="nav-link">Sản Phẩm</a></li>
-          <li><a href="#" class="nav-link">Đánh Giá</a></li>
-          <li><a href="#" class="nav-link">Liên Hệ</a></li>
-        </ul>
-
-        <div class="nav-actions">
-          <button class="action-btn">
-            <i class="fas fa-heart"></i>
-          </button>
-          <button class="action-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">3</span>
-          </button>
-          <a href="dangnhap.html" class="login-btn">Đăng Nhập</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hotline Header -->
-    <div class="hotline-header">
-      HOTLINE ĐẶT HOA NHANH - TP HCM: 1900 633 045 - HÀ NỘI: 094 200 7921
-    </div>
-
-    <!-- Main Container -->
-    <div class="container">
-      <div class="product-detail">
-        <!-- Product Image -->
-        <div class="product-image-section">
-          <img
-            id="productImage"
-            src="src/img/Anhsao.webp"
-            alt="Ấm Sao"
-            class="main-image"
-          />
+        <!-- Hotline Header -->
+        <div class="hotline-header">
+          HOTLINE ĐẶT HOA NHANH - TP HCM: 1900 633 045 - HÀ NỘI: 094 200 7921
         </div>
 
-        <!-- Product Info -->
-        <div class="product-info">
-          <h1 id="productTitle" class="product-title">Ấm Sao</h1>
-          <div id="productPrice" class="product-price">790,000VND</div>
-          <div class="vat-note">Giá đã bao gồm 8% VAT</div>
-
-          <!-- Promotions Section -->
-          <div class="promotions-section">
-            <div class="promo-label">Khuyến mãi:</div>
-            <div class="promo-tags">
-              <span class="promo-tag">Giảm 50K</span>
-              <span class="promo-tag">Giảm 25K</span>
-              <span class="promo-tag">Giảm 10%</span>
-            </div>
-          </div>
-
-          <!-- Services Section -->
-          <div class="services-section">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-truck"></i>
-              </div>
-              <div class="service-text">
-                <div class="service-title">Giao hoa</div>
-                <div class="service-subtitle">MIỄN PHÍ</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="service-text">
-                <div class="service-title">Tặng kèm</div>
-                <div class="service-subtitle">THIỆP/BANNER</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="service-text">
-                <div class="service-title">Giao nhanh</div>
-                <div class="service-subtitle">60 PHÚT</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Purchase Section -->
-          <div class="purchase-section">
-            <div class="quantity-section">
-              <div class="quantity-label">Số lượng</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
-                <span class="quantity-display" id="quantity">1</span>
-                <button class="qty-btn" onclick="changeQuantity(1)">+</button>
-              </div>
+        <!-- Main Container -->
+        <div class="container">
+          <div class="product-detail">
+            <!-- Product Image -->
+            <div class="product-image-section">
+              <img
+                id="productImage"
+                src="src/img/Anhsao.webp"
+                alt="Ấm Sao"
+                class="main-image"
+              />
             </div>
 
-            <button class="main-order-btn" onclick="orderNow()">
-              <i class="fas fa-shopping-cart"></i>
-              ĐẶT HOA NGAY
-            </button>
+            <!-- Product Info -->
+            <div class="product-info">
+              <h1 id="productTitle" class="product-title">Ấm Sao</h1>
+              <div id="productPrice" class="product-price">790,000VND</div>
+              <div class="vat-note">Giá đã bao gồm 8% VAT</div>
 
-            <!-- Contact Buttons -->
-            <div class="contact-buttons">
-              <button class="contact-btn contact-phone">
-                <i class="fas fa-phone"></i>
-                Đặt nhanh
-              </button>
-              <button class="contact-btn contact-zalo">
-                <i class="fab fa-facebook-messenger"></i>
-                Zalo QA
-              </button>
-              <button class="contact-btn contact-facebook">
-                <i class="fab fa-facebook-messenger"></i>
-                Facebook
-              </button>
+              <!-- Promotions Section -->
+              <div class="promotions-section">
+                <div class="promo-label">Khuyến mãi:</div>
+                <div class="promo-tags">
+                  <span class="promo-tag">Giảm 50K</span>
+                  <span class="promo-tag">Giảm 25K</span>
+                  <span class="promo-tag">Giảm 10%</span>
+                </div>
+              </div>
+
+              <!-- Services Section -->
+              <div class="services-section">
+                <div class="service-item">
+                  <div class="service-icon">
+                    <i class="fas fa-truck"></i>
+                  </div>
+                  <div class="service-text">
+                    <div class="service-title">Giao hoa</div>
+                    <div class="service-subtitle">MIỄN PHÍ</div>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="service-text">
+                    <div class="service-title">Tặng kèm</div>
+                    <div class="service-subtitle">THIỆP/BANNER</div>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div class="service-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="service-text">
+                    <div class="service-title">Giao nhanh</div>
+                    <div class="service-subtitle">60 PHÚT</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Purchase Section -->
+              <div class="purchase-section">
+                <div class="quantity-section">
+                  <div class="quantity-label">Số lượng</div>
+                  <div class="quantity-controls">
+                    <button class="qty-btn" onclick="changeQuantity(-1)">
+                      -
+                    </button>
+                    <span class="quantity-display" id="quantity">1</span>
+                    <button class="qty-btn" onclick="changeQuantity(1)">
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <button class="main-order-btn" onclick="orderNow()">
+                  <i class="fas fa-shopping-cart"></i>
+                  ĐẶT HOA NGAY
+                </button>
+
+                <!-- Contact Buttons -->
+                <div class="contact-buttons">
+                  <button class="contact-btn contact-phone">
+                    <i class="fas fa-phone"></i>
+                    Đặt nhanh
+                  </button>
+                  <button class="contact-btn contact-zalo">
+                    <i class="fab fa-facebook-messenger"></i>
+                    Zalo QA
+                  </button>
+                  <button class="contact-btn contact-facebook">
+                    <i class="fab fa-facebook-messenger"></i>
+                    Facebook
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Detailed Product Description -->
-    <div class="container">
-      <div class="detailed-description">
-        <h2>Mô tả chi tiết sản phẩm</h2>
-        <div id="detailedContent">
-          <p>
-            <strong>Bó hoa "Ấm Sao"</strong> là một tác phẩm nghệ thuật được tạo
-            nên từ những bông hoa hồng tươi thắm nhất, mang đến vẻ đẹp tinh tế
-            và sang trọng cho người nhận.
-          </p>
+        <!-- Detailed Product Description -->
+        <div class="container">
+          <div class="detailed-description">
+            <h2>Mô tả chi tiết sản phẩm</h2>
+            <div id="detailedContent">
+              <p>
+                <strong>Bó hoa "Ấm Sao"</strong> là một tác phẩm nghệ thuật được
+                tạo nên từ những bông hoa hồng tươi thắm nhất, mang đến vẻ đẹp
+                tinh tế và sang trọng cho người nhận.
+              </p>
 
-          <h3>Đặc điểm nổi bật:</h3>
-          <ul>
-            <li>
-              <strong>Hoa hồng cao cấp:</strong> Sử dụng 30-35 bông hoa hồng
-              tươi nhập khẩu từ Đà Lạt, được chọn lọc kỹ càng
-            </li>
-            <li>
-              <strong>Màu sắc nhẹ nhàng:</strong> Tông màu hồng pastel kết hợp
-              trắng tinh khôi tạo nên vẻ đẹp dịu dàng
-            </li>
-            <li>
-              <strong>Lá phụ tự nhiên:</strong> Eucalyptus và baby breath tạo
-              điểm nhấn tinh tế và thơm mát
-            </li>
-            <li>
-              <strong>Gói hoa đẹp mắt:</strong> Giấy gói cao cấp màu trắng với
-              ruy băng hồng sang trọng
-            </li>
-            <li>
-              <strong>Kích thước:</strong> Cao 50cm, đường kính 35cm - kích
-              thước hoàn hảo để thể hiện tình cảm
-            </li>
-            <li>
-              <strong>Thời gian tươi:</strong> 7-10 ngày nếu chăm sóc đúng cách
-            </li>
-          </ul>
+              <h3>Đặc điểm nổi bật:</h3>
+              <ul>
+                <li>
+                  <strong>Hoa hồng cao cấp:</strong> Sử dụng 30-35 bông hoa hồng
+                  tươi nhập khẩu từ Đà Lạt, được chọn lọc kỹ càng
+                </li>
+                <li>
+                  <strong>Màu sắc nhẹ nhàng:</strong> Tông màu hồng pastel kết
+                  hợp trắng tinh khôi tạo nên vẻ đẹp dịu dàng
+                </li>
+                <li>
+                  <strong>Lá phụ tự nhiên:</strong> Eucalyptus và baby breath
+                  tạo điểm nhấn tinh tế và thơm mát
+                </li>
+                <li>
+                  <strong>Gói hoa đẹp mắt:</strong> Giấy gói cao cấp màu trắng
+                  với ruy băng hồng sang trọng
+                </li>
+                <li>
+                  <strong>Kích thước:</strong> Cao 50cm, đường kính 35cm - kích
+                  thước hoàn hảo để thể hiện tình cảm
+                </li>
+                <li>
+                  <strong>Thời gian tươi:</strong> 7-10 ngày nếu chăm sóc đúng
+                  cách
+                </li>
+              </ul>
 
-          <h3>Ý nghĩa và phù hợp cho:</h3>
-          <p>
-            Bó hoa "Ấm Sao" mang trong mình thông điệp về tình yêu ấm áp và sự
-            quan tâm chân thành. Những bông hoa hồng được sắp xếp một cách tinh
-            tế, tạo nên một tổng thể harmonious và đầy cảm xúc.
-          </p>
-          <p>
-            <strong>Thích hợp cho các dịp:</strong> Sinh nhật, kỷ niệm ngày
-            cưới, cầu hôn, Valentine, Ngày Phụ nữ Việt Nam (20/10), Ngày Quốc tế
-            Phụ nữ (8/3), hay đơn giản là để bày trang trí nhà cửa, văn phòng.
-          </p>
+              <h3>Ý nghĩa và phù hợp cho:</h3>
+              <p>
+                Bó hoa "Ấm Sao" mang trong mình thông điệp về tình yêu ấm áp và
+                sự quan tâm chân thành. Những bông hoa hồng được sắp xếp một
+                cách tinh tế, tạo nên một tổng thể harmonious và đầy cảm xúc.
+              </p>
+              <p>
+                <strong>Thích hợp cho các dịp:</strong> Sinh nhật, kỷ niệm ngày
+                cưới, cầu hôn, Valentine, Ngày Phụ nữ Việt Nam (20/10), Ngày
+                Quốc tế Phụ nữ (8/3), hay đơn giản là để bày trang trí nhà cửa,
+                văn phòng.
+              </p>
 
-          <h3>Hướng dẫn chăm sóc:</h3>
-          <ul>
-            <li>Cắt chéo cuống hoa dưới vòi nước chảy ngay khi nhận</li>
-            <li>Đặt hoa trong bình nước sạch, thay nước 2-3 ngày/lần</li>
-            <li>Tránh ánh nắng trực tiếp và gió mạnh</li>
-            <li>
-              Cắt bỏ những bông hoa đã héo để giữ độ tươi cho những bông khác
-            </li>
-          </ul>
+              <h3>Hướng dẫn chăm sóc:</h3>
+              <ul>
+                <li>Cắt chéo cuống hoa dưới vòi nước chảy ngay khi nhận</li>
+                <li>Đặt hoa trong bình nước sạch, thay nước 2-3 ngày/lần</li>
+                <li>Tránh ánh nắng trực tiếp và gió mạnh</li>
+                <li>
+                  Cắt bỏ những bông hoa đã héo để giữ độ tươi cho những bông
+                  khác
+                </li>
+              </ul>
 
-          <p class="note">
-            <em
-              ><strong>Lưu ý:</strong> Màu sắc và số lượng hoa có thể thay đổi
-              nhẹ tùy theo tình hình thực tế và mùa vụ, nhưng chúng tôi cam kết
-              luôn giữ nguyên giá trị thẩm mỹ và chất lượng của sản phẩm. Mỗi bó
-              hoa đều được thiết kế riêng biệt bởi đội ngũ florist chuyên
-              nghiệp.</em
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-      <div class="footer-container">
-        <div class="footer-content">
-          <!-- Company Info -->
-          <div class="footer-section">
-            <h3>Shop Hoa Tươi</h3>
-            <div class="footer-logo">
-              <i class="fas fa-seedling"></i>
-              Hoa Tươi Đẹp
+              <p class="note">
+                <em
+                  ><strong>Lưu ý:</strong> Màu sắc và số lượng hoa có thể thay
+                  đổi nhẹ tùy theo tình hình thực tế và mùa vụ, nhưng chúng tôi
+                  cam kết luôn giữ nguyên giá trị thẩm mỹ và chất lượng của sản
+                  phẩm. Mỗi bó hoa đều được thiết kế riêng biệt bởi đội ngũ
+                  florist chuyên nghiệp.</em
+                >
+              </p>
             </div>
-            <p>Chuyên cung cấp hoa tươi cao cấp tại TP.HCM và Hà Nội.</p>
-            <div class="social-links">
-              <a href="#" class="social-link">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-link">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="social-link">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Contact Info -->
-          <div class="footer-section">
-            <h3>Liên Hệ</h3>
-            <div class="contact-info">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>123 Nguyễn Văn Linh, Q.7, TP.HCM</span>
-            </div>
-            <div class="contact-info">
-              <i class="fas fa-phone"></i>
-              <span>1900 633 045</span>
-            </div>
-            <div class="contact-info">
-              <i class="fas fa-envelope"></i>
-              <span>info@shophoatuoi.vn</span>
-            </div>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="footer-section">
-            <h3>Dịch Vụ</h3>
-            <ul>
-              <li><a href="#">Hướng dẫn đặt hàng</a></li>
-              <li><a href="#">Chính sách giao hàng</a></li>
-              <li><a href="#">Chính sách đổi trả</a></li>
-              <li><a href="#">Liên hệ hỗ trợ</a></li>
-            </ul>
           </div>
         </div>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-          <p>&copy; 2025 Shop Hoa Tươi. Tất cả quyền được bảo lưu.</p>
-          <p>
-            Được thiết kế và phát triển bởi <strong>Web Design Team</strong>
-          </p>
-        </div>
-      </div>
-    </footer>
+        <script>
+          // Get product info from URL parameters
+          function getProductFromURL() {
+              const urlParams = new URLSearchParams(window.location.search);
+              const productName = urlParams.get('name');
+              const productPrice = urlParams.get('price');
+              const productImage = urlParams.get('image');
 
-    <script>
-      // Get product info from URL parameters
-      function getProductFromURL() {
-          const urlParams = new URLSearchParams(window.location.search);
-          const productName = urlParams.get('name');
-          const productPrice = urlParams.get('price');
-          const productImage = urlParams.get('image');
+              if (productName && productPrice && productImage) {
+                  document.getElementById('productTitle').textContent = productName;
+                  document.getElementById('productPrice').textContent = productPrice;
+                  document.getElementById('productImage').src = productImage;
+                  document.getElementById('productImage').alt = productName;
 
-          if (productName && productPrice && productImage) {
-              document.getElementById('productTitle').textContent = productName;
-              document.getElementById('productPrice').textContent = productPrice;
-              document.getElementById('productImage').src = productImage;
-              document.getElementById('productImage').alt = productName;
-
-              // Update description based on product
-              updateProductDescription(productName);
-          }
-      }
-
-      // Update product description based on product name
-      function updateProductDescription(productName) {
-          const descriptions = {
-              'Little Love': 'là biểu tượng của tình yêu nhỏ bé nhưng chân thành, được tạo nên từ những bông hoa hồng mini đáng yêu.',
-              'Ngọt Ngão': 'mang đến cảm giác ấm áp và ngọt ngào như tình yêu đầu đời với những tông màu pastel dịu dàng.',
-              'Ấm Sao': 'được tạo nên từ những bông hoa hồng tươi thắm nhất, mang đến vẻ đẹp tinh tế và sang trọng.',
-              '100 Ngày Yêu': 'là món quà hoàn hảo thể hiện tình yêu bền vững với sự kết hợp harmonious của nhiều loại hoa.',
-              'Bó Hoa Bright Pink': 'nổi bật với sắc hồng rực rỡ, tạo nên điểm nhấn tươi mới và năng động.',
-              'Missing You': 'thể hiện nỗi nhớ nhung sâu sắc qua từng cánh hoa tinh tế và đầy cảm xúc.',
-              'Năm Tháng': 'ghi dấu những khoảnh khắc đáng nhớ với vẻ đẹp cổ điển và thanh lịch.',
-              'Yêu Thầm': 'thể hiện tình cảm kín đáo và sâu lắng qua màu sắc nhẹ nhàng, tinh tế.'
-          };
-
-          const desc = descriptions[productName];
-          if (desc) {
-              const descSection = document.querySelector('.product-description');
-              descSection.innerHTML = `
-                  <h4>Mô tả sản phẩm</h4>
-                  <p>Bó hoa <strong>"${productName}"</strong> ${desc} Phù hợp cho sinh nhật, kỷ niệm và các dịp đặc biệt.</p>
-              `;
-          }
-      }
-
-      // Quantity controls
-      let currentQuantity = 1;
-
-      function changeQuantity(change) {
-          currentQuantity = Math.max(1, currentQuantity + change);
-          document.getElementById('quantity').textContent = currentQuantity;
-
-          const minusBtn = document.querySelector('.qty-btn');
-          minusBtn.disabled = currentQuantity <= 1;
-      }
-
-      // Order functionality
-      function orderNow() {
-          const productName = document.getElementById('productTitle').textContent;
-          const productPrice = document.getElementById('productPrice').textContent;
-
-          const btn = document.querySelector('.main-order-btn');
-          btn.style.transform = 'scale(0.95)';
-          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ĐANG XỬ LÝ...';
-
-          setTimeout(() => {
-              btn.style.transform = '';
-              btn.innerHTML = '<i class="fas fa-shopping-cart"></i> ĐẶT HOA NGAY';
-
-              const cartCount = document.querySelector('.cart-count');
-              if (cartCount) {
-                  let currentCount = parseInt(cartCount.textContent);
-                  cartCount.textContent = currentCount + currentQuantity;
-
-                  cartCount.style.transform = 'scale(1.5)';
-                  setTimeout(() => cartCount.style.transform = '', 300);
+                  // Update description based on product
+                  updateProductDescription(productName);
               }
+          }
 
-              alert(`Đã thêm ${currentQuantity} ${productName} (${productPrice}) vào giỏ hàng!`);
-          }, 2000);
-      }
+          // Update product description based on product name
+          function updateProductDescription(productName) {
+              const descriptions = {
+                  'Little Love': 'là biểu tượng của tình yêu nhỏ bé nhưng chân thành, được tạo nên từ những bông hoa hồng mini đáng yêu.',
+                  'Ngọt Ngão': 'mang đến cảm giác ấm áp và ngọt ngào như tình yêu đầu đời với những tông màu pastel dịu dàng.',
+                  'Ấm Sao': 'được tạo nên từ những bông hoa hồng tươi thắm nhất, mang đến vẻ đẹp tinh tế và sang trọng.',
+                  '100 Ngày Yêu': 'là món quà hoàn hảo thể hiện tình yêu bền vững với sự kết hợp harmonious của nhiều loại hoa.',
+                  'Bó Hoa Bright Pink': 'nổi bật với sắc hồng rực rỡ, tạo nên điểm nhấn tươi mới và năng động.',
+                  'Missing You': 'thể hiện nỗi nhớ nhung sâu sắc qua từng cánh hoa tinh tế và đầy cảm xúc.',
+                  'Năm Tháng': 'ghi dấu những khoảnh khắc đáng nhớ với vẻ đẹp cổ điển và thanh lịch.',
+                  'Yêu Thầm': 'thể hiện tình cảm kín đáo và sâu lắng qua màu sắc nhẹ nhàng, tinh tế.'
+              };
 
-      // Initialize page
-      document.addEventListener('DOMContentLoaded', function() {
-          getProductFromURL();
-      });
-    </script>
+              const desc = descriptions[productName];
+              if (desc) {
+                  const descSection = document.querySelector('.product-description');
+                  descSection.innerHTML = `
+                      <h4>Mô tả sản phẩm</h4>
+                      <p>Bó hoa <strong>"${productName}"</strong> ${desc} Phù hợp cho sinh nhật, kỷ niệm và các dịp đặc biệt.</p>
+                  `;
+              }
+          }
+
+          // Quantity controls
+          let currentQuantity = 1;
+
+          function changeQuantity(change) {
+              currentQuantity = Math.max(1, currentQuantity + change);
+              document.getElementById('quantity').textContent = currentQuantity;
+
+              const minusBtn = document.querySelector('.qty-btn');
+              minusBtn.disabled = currentQuantity <= 1;
+          }
+
+          // Order functionality
+          function orderNow() {
+              const productName = document.getElementById('productTitle').textContent;
+              const productPrice = document.getElementById('productPrice').textContent;
+
+              const btn = document.querySelector('.main-order-btn');
+              btn.style.transform = 'scale(0.95)';
+              btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ĐANG XỬ LÝ...';
+
+              setTimeout(() => {
+                  btn.style.transform = '';
+                  btn.innerHTML = '<i class="fas fa-shopping-cart"></i> ĐẶT HOA NGAY';
+
+                  const cartCount = document.querySelector('.cart-count');
+                  if (cartCount) {
+                      let currentCount = parseInt(cartCount.textContent);
+                      cartCount.textContent = currentCount + currentQuantity;
+
+                      cartCount.style.transform = 'scale(1.5)';
+                      setTimeout(() => cartCount.style.transform = '', 300);
+                  }
+
+                  alert(`Đã thêm ${currentQuantity} ${productName} (${productPrice}) vào giỏ hàng!`);
+              }, 2000);
+          }
+
+          // Initialize page
+          document.addEventListener('DOMContentLoaded', function() {
+              getProductFromURL();
+          });
+        </script>
+      </div>
+      <!-- End modal-container -->
+    </div>
+    <!-- End modal-overlay -->
   </body>
 </html>
