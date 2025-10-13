@@ -23,7 +23,7 @@
           <p>Hoa tươi mỗi ngày<br />Giao hàng tận nơi</p>
           <button
             class="register-btn"
-            onclick="alert('Trang đăng ký đang được phát triển!')"
+            onclick="window.location.href='register.html'"
           >
             Đăng Ký Ngay
           </button>
@@ -34,25 +34,21 @@
         <h2>Đăng Nhập</h2>
         <p class="subtitle">Chào mừng quý khách trở lại</p>
 
-        <form>
+        <form onsubmit="return false;">
           <p>Tài khoản</p>
           <div class="form-group">
-            <input type="text" placeholder="Tên đăng nhập" />
+            <input id="username" type="text" placeholder="Tên đăng nhập" />
             <i class="fas fa-user icon"></i>
           </div>
           <p>Mật khẩu</p>
           <div class="form-group">
-            <input type="password" placeholder="Mật khẩu" />
+            <input id="password" type="password" placeholder="Mật khẩu" />
             <i class="fas fa-lock icon"></i>
           </div>
 
           <!-- forgot-password removed -->
 
-          <button
-            type="button"
-            class="login-btn"
-            onclick="alert('Đăng nhập thành công!')"
-          >
+          <button type="button" class="login-btn" onclick="handleLogin()">
             Đăng Nhập
           </button>
         </form>
@@ -76,6 +72,60 @@
           </div>
         </div>
       </div>
+      <script>
+        // Login: check stored accounts in localStorage, keep legacy demo account for compatibility
+        function handleLogin() {
+          const username = document.getElementById('username').value.trim();
+          const password = document.getElementById('password').value;
+
+          const legacyUser = { username: 'nguoidung1', password: 'mahoa123' };
+
+          let authenticated = false;
+
+          try {
+            const accounts = JSON.parse(localStorage.getItem('floralShopAccounts') || '[]');
+            if (accounts && accounts.find(a => a.username === username && a.password === password)) {
+              authenticated = true;
+            }
+          } catch (e) {
+            console.error('Error reading accounts', e);
+          }
+
+          // Fallback to legacy demo credentials
+          if (!authenticated && username === legacyUser.username && password === legacyUser.password) {
+            authenticated = true;
+          }
+
+          if (authenticated) {
+            localStorage.setItem('floralShopUser', JSON.stringify({ username }));
+
+            const params = new URLSearchParams(window.location.search);
+            const next = params.get('next');
+            if (next) {
+              try {
+                window.location.href = decodeURIComponent(next);
+                return;
+              } catch (e) {
+                // ignore and continue to index
+              }
+            }
+
+            window.location.href = 'index.html';
+          } else {
+            alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
+          }
+        }
+
+        // Prefill username if redirected from register.html?user=...
+        document.addEventListener('DOMContentLoaded', () => {
+          const params = new URLSearchParams(window.location.search);
+          const pre = params.get('user');
+          if (pre) {
+            const input = document.getElementById('username');
+            if (input) input.value = pre;
+          }
+        });
+      </script>
     </div>
   </body>
 </html>

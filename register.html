@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký - Shop Hoa Tươi</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="welcome-section">
+        <div class="content-wrapper">
+          <img src="florist1_.png" alt="Florist" class="florist-inline" />
+          <h1>Shop Hoa Tươi</h1>
+          <p>Hoa tươi mỗi ngày<br />Giao hàng tận nơi</p>
+          <button
+            class="register-btn"
+            onclick="window.location.href='dangnhap.html'"
+          >
+            Đã có tài khoản
+          </button>
+        </div>
+      </div>
+
+      <div class="login-section">
+        <h2>Đăng Ký</h2>
+        <p class="subtitle">Tạo tài khoản mới để mua sắm</p>
+
+        <form onsubmit="return false;">
+          <p>Tài khoản</p>
+          <div class="form-group">
+            <input id="reg-username" type="text" placeholder="Tên đăng nhập" />
+            <i class="fas fa-user icon"></i>
+          </div>
+          <p>Mật khẩu</p>
+          <div class="form-group">
+            <input id="reg-password" type="password" placeholder="Mật khẩu" />
+            <i class="fas fa-lock icon"></i>
+          </div>
+          <p>Xác nhận mật khẩu</p>
+          <div class="form-group">
+            <input
+              id="reg-password2"
+              type="password"
+              placeholder="Nhập lại mật khẩu"
+            />
+            <i class="fas fa-lock icon"></i>
+          </div>
+
+          <button type="button" class="login-btn" onclick="handleRegister()">
+            Đăng Ký
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>hoặc đăng nhập với</span>
+        </div>
+
+        <div class="social-login">
+          <div class="social-btn google" title="Google">
+            <i class="fab fa-google"></i>
+          </div>
+          <div class="social-btn facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div class="social-btn github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="social-btn linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function handleRegister() {
+        const username = document.getElementById('reg-username').value.trim();
+        const password = document.getElementById('reg-password').value;
+        const password2 = document.getElementById('reg-password2').value;
+
+        if (!username || username.length < 3) {
+          alert('Tên đăng nhập phải có ít nhất 3 ký tự');
+          return;
+        }
+        if (!password || password.length < 6) {
+          alert('Mật khẩu phải có ít nhất 6 ký tự');
+          return;
+        }
+        if (password !== password2) {
+          alert('Mật khẩu và xác nhận không khớp');
+          return;
+        }
+
+        // Save account to localStorage
+        try {
+          const accounts = JSON.parse(localStorage.getItem('floralShopAccounts') || '[]');
+          if (accounts.find(a => a.username === username)) {
+            alert('Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.');
+            return;
+          }
+          accounts.push({ username, password, createdAt: new Date().toISOString() });
+          localStorage.setItem('floralShopAccounts', JSON.stringify(accounts));
+
+          alert('Đăng ký thành công! Vui lòng đăng nhập.');
+          // Redirect to login with username prefilled
+          const params = new URLSearchParams();
+          params.set('user', username);
+          window.location.href = 'dangnhap.html?' + params.toString();
+        } catch (e) {
+          console.error('Register error', e);
+          alert('Có lỗi xảy ra, vui lòng thử lại.');
+        }
+      }
+    </script>
+  </body>
+</html>
