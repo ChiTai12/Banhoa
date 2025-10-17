@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -404,276 +404,6 @@
 
            .nav-dot { width: 12px; height: 12px; }
          }
-
-             /* About Us - Full Width Background */
-             .about-us {
-               width: 100%;
-               margin: 0;
-               background: #ffffff !important;
-               box-shadow: 0 0 40px rgba(0,0,0,0.04);
-               position: relative;
-               overflow: hidden;
-             }
-
-             .about-us::before {
-               content: '';
-               position: absolute;
-               top: 0;
-               left: 0;
-               right: 0;
-               bottom: 0;
-               background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23e91e63" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%2300b4a6" opacity="0.1"/><circle cx="60" cy="80" r="2.5" fill="%23e91e63" opacity="0.1"/></svg>') repeat;
-               pointer-events: none;
-             }
-
-             .about-container {
-               max-width: 1400px;
-               margin: 0 auto;
-               padding: 0 40px;
-               display: grid;
-               grid-template-columns: 1fr 1fr;
-               gap: 120px;
-               align-items: center;
-               position: relative;
-               z-index: 2;
-             }
-
-             .about-media {
-               position: relative;
-               height: 500px;
-               border-radius: 20px;
-               overflow: visible;
-               display: flex;
-               align-items: center;
-               justify-content: center;
-             }
-
-             .about-collage {
-               width: 100%;
-               height: 100%;
-               position: relative;
-             }
-
-             .about-collage img {
-               position: absolute;
-               border-radius: 20px;
-               box-shadow: 0 25px 60px rgba(16,24,40,0.15);
-               object-fit: cover;
-               width: 75%;
-               height: 75%;
-               right: 0;
-               top: 12%;
-               transform: rotate(-2deg);
-               border: 10px solid #fff;
-             }
-
-             .about-collage .bg-img {
-               position: absolute;
-               left: 0;
-               bottom: 0;
-               width: 70%;
-               height: 70%;
-               border-radius: 20px;
-               object-fit: cover;
-               box-shadow: 0 20px 50px rgba(16,24,40,0.12);
-               border: 10px solid #fff;
-             }
-
-             .badge-years {
-               position: absolute;
-               left: 30px;
-               top: 30px;
-               background: linear-gradient(135deg, #00b4a6, #4fd1c7);
-               color: white;
-               padding: 16px 24px;
-               border-radius: 16px;
-               font-weight: 900;
-               box-shadow: 0 15px 40px rgba(0, 180, 166, 0.3);
-               font-size: 1.1rem;
-               z-index: 10;
-             }
-
-             .about-content {
-               padding: 20px 0;
-             }
-
-             .about-content h3 {
-               color: #00b4a6;
-               font-weight: 700;
-               margin-bottom: 12px;
-               letter-spacing: 1px;
-               font-size: 1.1rem;
-               text-transform: uppercase;
-             }
-
-             .about-content h2 {
-               font-size: 3.2rem;
-               color: #111827;
-               margin-bottom: 24px;
-               font-weight: 900;
-               line-height: 1.1;
-             }
-
-             .about-content p.lead {
-               color: #4b5563;
-               font-size: 1.2rem;
-               line-height: 1.8;
-               margin-bottom: 40px;
-             }
-
-             .about-features {
-               display: grid;
-               grid-template-columns: repeat(2, minmax(0,1fr));
-               gap: 20px;
-               margin-bottom: 40px;
-             }
-
-             .feature-card {
-               display: flex;
-               gap: 18px;
-               align-items: center;
-               background: #f8fafc;
-               border-radius: 16px;
-               padding: 26px 22px;
-               transition: all 0.3s ease;
-               min-height: 110px;
-               border: 1px solid rgba(0,0,0,0.02);
-             }
-
-             .feature-card:hover {
-               transform: translateY(-8px);
-               box-shadow: 0 20px 60px rgba(16,24,40,0.08);
-               background: #ffffff;
-             }
-
-             .feature-icon {
-               width: 56px;
-               height: 56px;
-               border-radius: 50%;
-               display: grid;
-               place-items: center;
-               background: linear-gradient(135deg, #00b4a6, #4fd1c7);
-               color: white;
-               font-size: 1.4rem;
-               flex-shrink: 0;
-               box-shadow: 0 8px 25px rgba(0, 180, 166, 0.2);
-             }
-
-             .feature-text {
-               flex: 1;
-               display: flex;
-               flex-direction: column;
-               justify-content: center;
-             }
-
-             .feature-title {
-               font-weight: 800;
-               color: #111827;
-               font-size: 1.15rem;
-               margin-bottom: 6px;
-             }
-
-             .feature-desc {
-               color: #6b7280;
-               font-size: 0.95rem;
-               line-height: 1.5;
-             }
-
-             .about-actions {
-               display: flex;
-               gap: 20px;
-               align-items: center;
-               margin-top: 20px;
-             }
-
-             .btn-outline {
-               padding: 16px 28px;
-               border-radius: 30px;
-               /* stronger outline color for better contrast */
-               border: 2px solid #00b4a6;
-               background: transparent;
-               color: #00b4a6;
-               font-weight: 700;
-               text-decoration: none;
-               font-size: 1rem;
-               transition: all 0.18s ease;
-             }
-
-             .btn-outline:hover {
-               /* subtle hover: slight lift and gentle tinted background */
-               transform: translateY(-3px);
-               box-shadow: 0 10px 25px rgba(0, 180, 166, 0.08);
-               background: rgba(0, 180, 166, 0.05);
-               border-color: #00b4a6;
-               color: #00b4a6;
-             }
-
-             .btn-primary {
-               padding: 16px 32px;
-               border-radius: 30px;
-               background: linear-gradient(135deg,#00b4a6,#4fd1c7);
-               border: none; /* primary should not show border */
-               color: white;
-               font-weight: 800;
-               text-decoration: none;
-               /* box-shadow: 0 15px 50px rgba(0, 180, 166, 0.25); */
-               font-size: 1rem;
-               transition: transform 0.18s ease, box-shadow 0.18s ease;
-             }
-
-             .btn-primary:hover {
-               /* gentle lift and soft shadow on hover */
-               transform: translateY(-3px);
-               box-shadow: 0 14px 40px rgba(0, 180, 166, 0.12);
-             }
-
-             /* Responsive About Us */
-             @media (max-width: 768px) {
-               .about-us {
-                 padding: 60px 0;
-               }
-
-               .about-container {
-                 grid-template-columns: 1fr;
-                 gap: 60px;
-                 padding: 0 24px;
-               }
-
-               .about-media {
-                 height: 350px;
-                 order: 2;
-               }
-
-               .about-content {
-                 order: 1;
-                 text-align: center;
-               }
-
-               .about-content h2 {
-                 font-size: 2.4rem;
-               }
-
-               .about-features {
-                 grid-template-columns: 1fr;
-                 gap: 16px;
-               }
-
-               .about-actions {
-                 justify-content: center;
-                 flex-wrap: wrap;
-               }
-             }
-
-             /* animations */
-             .about-container, .about-media, .about-content {
-               will-change: transform, opacity;
-               animation: fadeUp 0.8s ease both;
-             }
-
-             @keyframes fadeUp {
-               from { opacity: 0; transform: translateY(30px); }
-               to   { opacity: 1; transform: translateY(0); }
-             }
              /* Products Section */
              .products-section {
                width: 100%;
@@ -1375,6 +1105,50 @@
                  margin-right: 8px;
                  font-size: 1.8rem;
              }
+            /* About modal styles */
+            .about-modal { position: fixed; inset: 0; z-index: 2000; display: none; }
+            .about-modal[aria-hidden="false"] { display: block; }
+            .about-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+            .about-modal-panel { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 90%; max-width: 1000px; background: #fff; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.35); overflow: auto; max-height: 85vh; padding: 28px; }
+            .about-modal-close { position: absolute; right: 12px; top: 8px; background: transparent; border: none; font-size: 28px; line-height: 1; cursor: pointer; }
+            .about-modal-content h2 { margin-top: 0; color: #0f172a; }
+            .about-modal-features { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 18px; }
+            @media (max-width: 768px){ .about-modal-panel{ width: 96%; padding: 18px; } .about-modal-features{ grid-template-columns: 1fr; } }
+    </style>
+    <style>
+      /* Modal overlay and panel */
+      #about-modal {position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200}
+      #about-modal.show{display:flex}
+      #about-modal .about-modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6)}
+      #about-modal .about-modal-panel{position:relative;max-width:1100px;width:94%;max-height:90vh;overflow:auto;background:#fff;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,0.2);z-index:2}
+      #about-modal .about-modal-close{position:absolute;top:10px;right:12px;background:transparent;border:0;font-size:28px;line-height:1;cursor:pointer;padding:6px}
+
+      /* About content inside modal */
+      .about-container{display:flex;flex-wrap:wrap}
+      .about-media{flex:1 1 320px;min-width:260px;background:#f7f7f7;border-right:1px solid #eee;padding:18px;display:flex;align-items:center;justify-content:center}
+      .about-collage{position:relative;width:100%;max-width:380px}
+      .about-collage img{width:100%;border-radius:8px;display:block}
+      .badge-years{position:absolute;bottom:12px;left:12px;background:#ff6b6b;color:#fff;padding:8px 10px;border-radius:6px;font-weight:700}
+
+      .about-content{flex:1 1 360px;min-width:300px;padding:26px}
+      .about-content h3{color:#888;margin:0 0 8px}
+      .about-content h2{margin:0 0 12px;font-size:26px}
+      .about-content .lead{color:#555;margin-bottom:18px}
+
+      .about-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+      .feature-card{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;background:#fafafa;border:1px solid #f0f0f0}
+      .feature-icon{width:44px;height:44px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;color:#ff6b6b}
+      .feature-title{font-weight:700}
+      .feature-desc{font-size:13px;color:#666}
+
+      .about-actions{margin-top:16px;display:flex;gap:10px}
+      .btn-primary{background:#ff6b6b;color:#fff;border:0;padding:10px 14px;border-radius:6px;cursor:pointer}
+      .btn-outline{background:transparent;border:1px solid #ccc;padding:10px 14px;border-radius:6px;cursor:pointer}
+
+      @media (max-width:800px){
+        .about-container{flex-direction:column}
+        .about-media{order:2;border-right:0;border-top:1px solid #eee}
+      }
     </style>
   </head>
   <body>
@@ -1393,7 +1167,7 @@
             <a href="#" class="nav-link active">Trang Chủ</a>
           </li>
           <li class="nav-item">
-            <a href="#about" class="nav-link">Giới Thiệu</a>
+            <a href="about.html" class="nav-link">Giới Thiệu</a>
           </li>
           <li class="nav-item">
             <a href="#products" class="nav-link">Sản Phẩm</a>
@@ -1415,7 +1189,7 @@
             onclick="window.location.href='cart.html'"
           >
             <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cart-count">0</span>
+            <span class="cart-count" id="cart-count" aria-hidden="true"></span>
           </button>
           <div id="user-area">
             <a href="dangnhap.html" class="login-btn" id="login-link"
@@ -1445,7 +1219,7 @@
             giá cả hợp lý. Tạo nên những khoảnh khắc đáng nhớ trong cuộc sống
             của bạn.
           </p>
-          <a href="#about" class="slide-btn">Khám Phá Ngay</a>
+          <a href="about.html" class="slide-btn">Khám Phá Ngay</a>
         </div>
       </div>
 
@@ -1492,77 +1266,6 @@
         <span class="nav-dot active" data-slide="0"></span>
         <span class="nav-dot" data-slide="1"></span>
         <span class="nav-dot" data-slide="2"></span>
-      </div>
-    </section>
-
-    <!-- About Us - Full Width -->
-    <section id="about" class="about-us" aria-labelledby="about-heading">
-      <div class="about-container">
-        <div class="about-media" aria-hidden="true">
-          <div class="about-collage">
-            <img
-              class="bg-img"
-              src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
-              alt="Hoa nền"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1487070183336-b863922373d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
-              alt="Bó hoa"
-            />
-            <div class="badge-years">10+ năm kinh nghiệm</div>
-          </div>
-        </div>
-
-        <div class="about-content">
-          <h3>Chúng tôi</h3>
-          <h2 id="about-heading">Mang Cảm Xúc Qua Từng Bông Hoa</h2>
-          <p class="lead">
-            Shop Hoa Tươi thiết kế và cung cấp các sản phẩm hoa tươi cho mọi
-            dịp. Chúng tôi kết hợp tay nghề thủ công và sáng tạo để tạo ra những
-            bó hoa vừa đẹp vừa ý nghĩa.
-          </p>
-
-          <div class="about-features">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-truck"></i></div>
-              <div class="feature-text">
-                <div class="feature-title">Giao hàng đúng hẹn</div>
-                <div class="feature-desc">
-                  Giao trong ngày tại khu vực nội thành
-                </div>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-seedling"></i></div>
-              <div class="feature-text">
-                <div class="feature-title">Nguồn hoa chọn lọc</div>
-                <div class="feature-desc">Hợp tác với nhà vườn uy tín</div>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-award"></i></div>
-              <div class="feature-text">
-                <div class="feature-title">Thiết kế độc đáo</div>
-                <div class="feature-desc">Tùy chỉnh theo yêu cầu</div>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-gift"></i></div>
-              <div class="feature-text">
-                <div class="feature-title">Gói quà chuyên nghiệp</div>
-                <div class="feature-desc">Tinh tế, sang trọng</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-actions">
-            <button type="button" class="btn-primary">Tìm Hiểu Thêm</button>
-            <button type="button" class="btn-outline">Xem Bộ Sưu Tập</button>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1744,7 +1447,7 @@
               <p class="product-price">1.330.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Giỏ Hoa Ngày Rực Rỡ', '1.330.000VND', '')"
+                onclick="goToProductDetail('Giỏ Hoa Ngày Rực Rỡ', '1.330.000VND', 'src/img/Giohoarr.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1761,7 +1464,7 @@
               <p class="product-price">860.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Quyến Rũ', '860.000VND', '')"
+                onclick="goToProductDetail('Quyến Rũ', '860.000VND', 'src/img/Quyenru.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1778,7 +1481,7 @@
               <p class="product-price">950.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Red Rose', '950.000VND', '')"
+                onclick="goToProductDetail('Red Rose', '950.000VND', 'src/img/Redrose.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1795,7 +1498,7 @@
               <p class="product-price">490.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Luôn Bên Em', '490.000VND', '')"
+                onclick="goToProductDetail('Luôn Bên Em', '490.000VND', 'src/img/Luonbenem.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1812,7 +1515,7 @@
               <p class="product-price">860.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Màu Tình Yêu', '860.000VND', '')"
+                onclick="goToProductDetail('Màu Tình Yêu', '860.000VND', 'src/img/Mautinhyeu.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1829,7 +1532,7 @@
               <p class="product-price">3.000.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Elegant', '3.000.000VND', '')"
+                onclick="goToProductDetail('Elegant', '3.000.000VND', 'src/img/Elegant.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1846,7 +1549,7 @@
               <p class="product-price">1.320.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Hương Nắng Mai', '1.320.000VND', '')"
+                onclick="goToProductDetail('Hương Nắng Mai', '1.320.000VND', 'src/img/Huongnangmai.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -1863,7 +1566,7 @@
               <p class="product-price">630.000VND</p>
               <button
                 class="order-btn"
-                onclick="goToProductDetail('Lạn Tỏa Ước Mơ', '630.000VND', '')"
+                onclick="goToProductDetail('Lạn Tỏa Ước Mơ', '630.000VND', 'src/img/Lantoa.webp')"
               >
                 <i class="fas fa-shopping-cart" aria-hidden="true"></i> Đặt Hàng
               </button>
@@ -2366,8 +2069,16 @@
           const encodedPrice = encodeURIComponent(price);
           const encodedImage = encodeURIComponent(image);
 
-          // Always go to product detail - no login check
-          window.location.href = `product-detail.html?name=${encodedName}&price=${encodedPrice}&image=${encodedImage}`;
+            // Prefer opening the product detail as a modal on the current page
+            // if the helper is available; otherwise navigate as before.
+            try {
+              if (window.openProductDetailModal) {
+                window.openProductDetailModal({ name: encodedName, price: encodedPrice, image: encodedImage });
+                return;
+              }
+            } catch (e) {}
+
+            window.location.href = `product-detail.html?name=${encodedName}&price=${encodedPrice}&image=${encodedImage}`;
         }      // Add to cart from listing (requires login on index)
         function addToCartFromList(name, price, image) {
           try {
@@ -2383,7 +2094,7 @@
             const id = String(name).toLowerCase().replace(/\s+/g, '-');
             const product = { id, name, price: priceNumber, image: image || '', quantity: 1 };
 
-            const raw = sessionStorage.getItem('floralShopCart');
+            const raw = localStorage.getItem('floralShopCart');
             const cart = raw ? JSON.parse(raw) : [];
             const existing = cart.find(item => item.id === product.id);
             if (existing) {
@@ -2391,7 +2102,7 @@
             } else {
               cart.push(product);
             }
-            sessionStorage.setItem('floralShopCart', JSON.stringify(cart));
+            localStorage.setItem('floralShopCart', JSON.stringify(cart));
 
             // Update simple cart count if present
             if (typeof simpleCartManager !== 'undefined' && simpleCartManager.updateCartCount) {
@@ -2462,6 +2173,37 @@
 
           // Initialize simple cart manager for index page
           const simpleCartManager = new SimpleCartManager();
+    </script>
+    <script>
+      (function(){
+        var modal = document.getElementById('about-modal');
+        if(!modal) return;
+        var overlay = modal.querySelector('.about-modal-overlay');
+        var closeBtn = modal.querySelector('.about-modal-close');
+
+        function openAboutModal(e){
+          if(e) e.preventDefault();
+          modal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+          // focus first focusable element inside modal
+          var focusable = modal.querySelector('button, a, input, [tabindex]');
+          if(focusable) focusable.focus();
+        }
+
+        function closeAboutModal(){
+          modal.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+
+        // attach to nav links that target #about
+        document.querySelectorAll('a.nav-link[href*="#about"]').forEach(function(a){
+          a.addEventListener('click', openAboutModal);
+        });
+
+        overlay.addEventListener('click', closeAboutModal);
+        closeBtn.addEventListener('click', closeAboutModal);
+        document.addEventListener('keydown', function(e){ if(e.key==="Escape") closeAboutModal(); });
+      })();
     </script>
 
     <script>
@@ -2557,5 +2299,9 @@
     </footer>
 
     <!-- Simple Footer Link -->
+
+    <!-- Simple Footer Link -->
+    <!-- dynamically include partials (about section loader) -->
+    <script src="partials/include.js"></script>
   </body>
 </html>

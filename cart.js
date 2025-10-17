@@ -106,15 +106,16 @@ class CartManager {
 
   // Update cart count in navigation
   updateCartCount() {
-    const cartCount = this.cart.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    const countElement = document.getElementById("cart-count");
-    if (countElement) {
-      countElement.textContent = cartCount;
-      countElement.style.display = cartCount > 0 ? "flex" : "none";
-    }
+    // Intentionally suppress visual badge updates per site configuration.
+    // Keep cart data consistent but do not display numbers under the cart icon.
+    try {
+      const countElement = document.getElementById("cart-count");
+      if (countElement) {
+        // clear content and hide to avoid any numeric display
+        countElement.textContent = "";
+        countElement.style.display = "none";
+      }
+    } catch (e) {}
   }
 
   // Format price to Vietnamese currency
