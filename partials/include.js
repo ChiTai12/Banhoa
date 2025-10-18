@@ -429,5 +429,44 @@
     window.openProductDetailModal = function (params) {
       openProductDetailModal(params);
     };
+
+    // --- lightweight about section loader (iframe-only) ---
+    function loadAboutSection() {
+      // if index already has #about, do nothing
+      if (document.getElementById("about")) return;
+
+      try {
+        const banner = document.querySelector(".banner-slider");
+        const footer = document.querySelector("footer") || document.body;
+
+        const iframe = document.createElement("iframe");
+        iframe.src = "about.html";
+        iframe.setAttribute("data-banhoa-about-iframe", "1");
+        iframe.style.width = "100%";
+        iframe.style.border = "0";
+        iframe.style.minHeight = "520px";
+        iframe.onload = function () {
+          try {
+            iframe.style.height =
+              (iframe.contentDocument.body.scrollHeight || 520) + "px";
+          } catch (e) {}
+        };
+
+        if (banner && banner.parentNode) {
+          banner.parentNode.insertBefore(iframe, banner.nextSibling);
+        } else if (footer.parentNode) {
+          footer.parentNode.insertBefore(iframe, footer);
+        } else {
+          document.body.appendChild(iframe);
+        }
+      } catch (e) {
+        // ignore - if embedding fails, we intentionally do nothing
+      }
+    }
+
+    // try to load about section on ready
+    try {
+      loadAboutSection();
+    } catch (e) {}
   });
 })();
