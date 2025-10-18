@@ -430,6 +430,61 @@
       openProductDetailModal(params);
     };
 
+    // Intercept clicks on social icons in footer so they don't navigate/scroll.
+    // Instead show a small, temporary toast message "Chỉ để trang trí".
+    (function () {
+      function showToast(text) {
+        // remove any existing toast
+        var old = document.querySelector(".banhoa-toast");
+        if (old && old.parentNode) old.parentNode.removeChild(old);
+
+        var t = document.createElement("div");
+        t.className = "banhoa-toast";
+        t.textContent = text;
+        Object.assign(t.style, {
+          position: "fixed",
+          left: "50%",
+          bottom: "28px",
+          transform: "translateX(-50%)",
+          background: "rgba(0,0,0,0.75)",
+          color: "#fff",
+          padding: "8px 12px",
+          borderRadius: "16px",
+          zIndex: 2500,
+          fontSize: "13px",
+          pointerEvents: "none",
+        });
+        document.body.appendChild(t);
+        setTimeout(function () {
+          if (t && t.parentNode) t.parentNode.removeChild(t);
+        }, 1800);
+      }
+
+      document.addEventListener("click", function (ev) {
+        try {
+          var a = ev.target.closest && ev.target.closest(".social-link");
+          if (!a) return;
+          // prevent default navigation/scroll-to-top caused by href="#"
+          ev.preventDefault && ev.preventDefault();
+          ev.stopPropagation && ev.stopPropagation();
+
+          // choose message by icon type
+          var msg = "Liên kết mạng xã hội (chỉ để trang trí)";
+          if (
+            a.querySelector(".fa-facebook") ||
+            a.querySelector(".fa-facebook-f")
+          )
+            msg = "Facebook (chỉ trang trí)";
+          else if (a.querySelector(".fa-instagram"))
+            msg = "Instagram (chỉ trang trí)";
+          else if (a.querySelector(".fa-youtube"))
+            msg = "YouTube (chỉ trang trí)";
+
+          showToast(msg);
+        } catch (e) {}
+      });
+    })();
+
     // --- lightweight about section loader (iframe-only) ---
     function loadAboutSection() {
       // if index already has #about, do nothing

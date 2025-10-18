@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Giỏ Hàng - Shop Hoa Tươi</title>
+  <title>Giỏ Hàng - Shop Eirlyst</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -22,7 +22,7 @@
         <!-- Logo -->
         <a href="index.html" class="logo">
           <i class="fas fa-seedling"></i>
-          Shop Hoa Tươi
+          Shop Eirlyst
         </a>
 
         <!-- Navigation Menu -->
@@ -276,53 +276,52 @@
     </div>
 
     <script>
-      // inject shared footer partial and apply fallback CSS if needed
-      (function(){
-        function ensureInjectedFooterCss(){
-          if(document.getElementById('injected-footer-css')) return;
-          var s = document.createElement('style');
-          s.id = 'injected-footer-css';
-          s.textContent = `
-            /* full footer CSS (inlined fallback) */
-            /* exact reference size for cart footer */
-            footer.footer.site-footer--injected{background:#2d3748;color:#fff;margin-top:40px;padding:30px 0 20px;width:100%;display:block;box-sizing:border-box;height:325.38px}
-            footer.footer.site-footer--injected .footer-container{max-width:1498px;width:1498px;margin:0 auto;padding:0 20px;box-sizing:border-box}
-            footer.footer.site-footer--injected .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-bottom:25px}
-            footer.footer.site-footer--injected .footer-section h3{color:#00b4a6;font-size:1.2rem;font-weight:800;margin-bottom:15px;display:flex;align-items:center;gap:10px}
-            footer.footer.site-footer--injected .footer-section p,footer.footer.site-footer--injected .footer-section li{color:#fff;line-height:1.6;margin-bottom:8px}
-            footer.footer.site-footer--injected .footer-section ul{list-style:none;padding:0}
-            footer.footer.site-footer--injected .footer-section a{color:#fff;text-decoration:none}
-            footer.footer.site-footer--injected .contact-info{display:flex;align-items:center;gap:12px;margin-bottom:15px}
-            footer.footer.site-footer--injected .contact-info i{color:#00b4a6;width:20px;font-size:1.1rem}
-            footer.footer.site-footer--injected .social-links{display:flex;gap:15px;margin-top:20px}
-            footer.footer.site-footer--injected .social-link{width:40px;height:40px;background:#4a5568;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:50%}
-            footer.footer.site-footer--injected .footer-bottom{border-top:1px solid #4a5568;padding-top:20px;text-align:center}
-            footer.footer.site-footer--injected .footer-bottom p{color:#fff;margin-bottom:5px}
-            footer.footer.site-footer--injected .footer-logo{display:inline-flex;align-items:center;font-size:1.5rem;font-weight:800;color:#00b4a6;margin-bottom:15px}
-            footer.footer.site-footer--injected .footer-logo i{margin-right:8px;font-size:1.8rem}
-              /* add a spacer above only the injected footer so cart spacing matches index */
-              /* removed extra spacer to keep footer aligned with page content */
-          `;
-          document.head.appendChild(s);
-        }
+          // inject shared footer partial and apply fallback CSS if needed
+          (function(){
+      function ensureInjectedFooterCss(){
+              if(document.getElementById('injected-footer-css')) return;
+              var s = document.createElement('style');
+              s.id = 'injected-footer-css';
+              s.textContent = `
+                /* footer CSS copied from styles.css to ensure parity with index */
+                /* Force exact injected footer size to match index: 1498px x 325.38px */
+                footer.footer.site-footer--injected { background: #2d3748; color: white; margin-top: 40px; padding: 30px 0 20px; box-sizing: border-box; width:100%; height:325.38px; display:block; }
+                footer.footer.site-footer--injected .footer-container { max-width: 1498px; width:1498px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+                footer.footer.site-footer--injected .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 25px; }
+                footer.footer.site-footer--injected .footer-section h3 { color: #00b4a6; font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; display:flex; align-items:center; gap:10px; }
+                footer.footer.site-footer--injected .footer-section p, footer.footer.site-footer--injected .footer-section li { color: white; line-height: 1.6; margin-bottom: 8px; }
+                footer.footer.site-footer--injected .footer-section ul { list-style: none; padding: 0; }
+                footer.footer.site-footer--injected .footer-section a { color: white; text-decoration: none; transition: color 0.3s ease; }
+                footer.footer.site-footer--injected .contact-info { display:flex; align-items:center; gap:12px; margin-bottom:15px; }
+                footer.footer.site-footer--injected .contact-info i { color:#00b4a6; width:20px; font-size:1.1rem; }
+                footer.footer.site-footer--injected .social-links { display:flex; gap:15px; margin-top:20px; }
+                footer.footer.site-footer--injected .social-link { width:40px; height:40px; background:#4a5568; color:white; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none; }
+                footer.footer.site-footer--injected .footer-bottom { border-top:1px solid #4a5568; padding-top:20px; text-align:center; }
+                footer.footer.site-footer--injected .footer-bottom p { color:white; margin-bottom:5px; }
+                footer.footer.site-footer--injected .footer-logo { display:inline-flex; align-items:center; font-size:1.5rem; font-weight:800; color:#00b4a6; margin-bottom:15px; }
+                footer.footer.site-footer--injected .footer-logo i { margin-right:8px; font-size:1.8rem; }
+                /* keep injected rules targeted so shared stylesheet still applies where available */
+              `;
+              document.head.appendChild(s);
+            }
 
-        function insertFooter(){
-          fetch('partials/footer.html', {cache: 'no-store'})
-            .then(r => r.ok ? r.text() : '')
-            .then(html => {
-              if(!html) return;
-              var tmp = document.createElement('div'); tmp.innerHTML = html;
-              var foot = tmp.querySelector('footer') || tmp.firstElementChild;
-              if(foot) {
-                foot.classList.add('site-footer--injected');
-                document.body.appendChild(foot);
-                ensureInjectedFooterCss();
-              }
-            }).catch(()=>{});
-        }
+            function insertFooter(){
+              fetch('partials/footer.html', {cache: 'no-store'})
+                .then(r => r.ok ? r.text() : '')
+                .then(html => {
+                  if(!html) return;
+                  var tmp = document.createElement('div'); tmp.innerHTML = html;
+                  var foot = tmp.querySelector('footer') || tmp.firstElementChild;
+                  if(foot) {
+                    foot.classList.add('site-footer--injected');
+                    document.body.appendChild(foot);
+                    ensureInjectedFooterCss();
+                  }
+                }).catch(()=>{});
+            }
 
-        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', insertFooter); else insertFooter();
-      })();
+            if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', insertFooter); else insertFooter();
+          })();
     </script>
     <script src="cart.js"></script>
   </body>
