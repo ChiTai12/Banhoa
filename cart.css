@@ -13,16 +13,17 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: hidden !important; /* Luôn hiển thị scrollbar để tránh layout shift */
+  overflow-y: auto; /* allow vertical scrolling so footer can be reached */
 }
 
 body {
   font-family: "Nunito", sans-serif;
   background: #ffffff;
+  display: block;
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 70px;
+  padding: 70px 0 0 0; /* keep top space for fixed navbar only */
   font-display: swap; /* Đảm bảo font render nhất quán */
   -webkit-font-smoothing: antialiased; /* Smooth font rendering */
   -moz-osx-font-smoothing: grayscale;

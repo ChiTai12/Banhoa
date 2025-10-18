@@ -441,7 +441,10 @@
 
         const iframe = document.createElement("iframe");
         iframe.src = "about.html";
+        // allow internal links to target the embedded about iframe
+        iframe.id = "about";
         iframe.setAttribute("data-banhoa-about-iframe", "1");
+        iframe.setAttribute("aria-label", "About section");
         iframe.style.width = "100%";
         iframe.style.border = "0";
         iframe.style.minHeight = "520px";
@@ -454,9 +457,11 @@
 
         if (banner && banner.parentNode) {
           banner.parentNode.insertBefore(iframe, banner.nextSibling);
-        } else if (footer.parentNode) {
+        } else if (footer !== document.body && footer.parentNode) {
+          // insert before footer only when footer is a real element inside body/html
           footer.parentNode.insertBefore(iframe, footer);
         } else {
+          // fallback append directly to body to avoid inserting before <body>
           document.body.appendChild(iframe);
         }
       } catch (e) {
